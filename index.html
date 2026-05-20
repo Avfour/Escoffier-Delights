@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escoffier Delights</title>
+  <meta name="description" content="Taste Like a Masterpiece - Signature dishes crafted by Escoffier. Fine Dining Delivered."/>
+  <meta name="theme-color" content="#ff7f5e"/>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://escoffier-delights.com"/>
+  <meta property="og:title" content="Escoffier Delights"/>
+  <meta property="og:description" content="Taste Like a Masterpiece - Signature dishes crafted by Escoffier. Fine Dining Delivered."/>
+  <meta property="og:image" content="assets/hero-bg.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:url" content="https://escoffier-delights.com"/>
+  <meta property="twitter:title" content="Escoffier Delights"/>
+  <meta property="twitter:description" content="Taste Like a Masterpiece - Signature dishes crafted by Escoffier. Fine Dining Delivered."/>
+  <meta property="twitter:image" content="assets/hero-bg.jpg"/>
+  
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Escoffier Delights Logo"/>
+        <span class="logo-text">Escoffier Delights</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#top" class="nav-link" id="homeLink">Home</a>
+        <a href="#footer" class="nav-link" id="contactLink">Contact</a>
+      </nav>
+      <div class="header-right">
+        <button class="cart-btn" id="cartBtn" aria-label="Cart">
+          <img src="assets/cart-icon.png" alt="Cart" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'cart-icon-fallback\'>🛒</span><span class=\'cart-count\' id=\'cartCount\'>0</span>'"/>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      <img src="assets/hero-bg.jpg" alt="Hero Background" class="hero-bg-img"/>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">✨ Fine Dining Delivered</div>
+        <h1 class="hero-title">Taste Like a<br/><span class="hero-accent">Masterpiece</span></h1>
+        <p class="hero-sub">Signature dishes crafted by Escoffier</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Order Now</button>
+          <button class="btn-secondary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">See Menu</button>
+        </div>
+        <div class="hero-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="hero-character">
+        <img src="assets/escoffier.png" alt="Escoffier Character" class="character-img"/>
+        <div class="char-blob"></div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#fff9f0"/></svg>
+    </div>
+  </section>
+
+  <!-- BEST PICKS SECTION -->
+  <section class="best-picks" id="bestpicks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">⭐ Top Choices</span>
+        <h2 class="section-title">Best Picks</h2>
+        <p class="section-sub">Our most loved treats, handpicked for you</p>
+      </div>
+      <div class="best-grid">
+
+        <!-- Best Seller -->
+        <div class="best-card featured" data-aos="fade-up">
+          <div class="card-img-wrap">
+            <img src="assets/delicious-la-lettre-a-focalors.png" alt="La Lettre à Focalors"/>
+            <span class="badge badge-seller">Best Seller</span>
+            <div class="card-img-deco"></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-name">Delicious La Lettre à Focalors</h3>
+            <p class="card-desc">The endlessly indulgent aroma of coffee and almonds draws you in — like stumbling into an extravagant opera. You find yourself drowning in the twists of this luxurious performance.</p>
+            <div class="card-footer">
+              <span class="price">$7.5</span>
+              <button class="add-cart-btn" onclick="addToCart('Delicious La Lettre à Focalors', 7.5, 'assets/delicious-la-lettre-a-focalors.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recommended -->
+        <div class="best-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="card-img-wrap">
+            <img src="assets/delicious-pate-de-fruit.png" alt="Pâte de Fruit"/>
+            <span class="badge badge-rec">Recommended</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-name">Delicious Pâte de Fruit</h3>
+            <p class="card-desc">Fills your mouth with fruity aromas as if a whole orchard were condensed inside the little gummy. Before you know it, you've devoured the entire jar!</p>
+            <div class="card-footer">
+              <span class="price">$6.5</span>
+              <button class="add-cart-btn" onclick="addToCart('Delicious Pâte de Fruit', 6.5, 'assets/delicious-pate-de-fruit.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🍽️ Full Collection</span>
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-sub">Every dish tells a story worth savoring</p>
+      </div>
+      <div class="menu-grid">
+
+        <div class="menu-card" data-aos="fade-up">
+          <div class="menu-img-wrap">
+            <img src="assets/gilded-hall.png" alt="Gilded Hall"/>
+            <span class="badge badge-seller">Best Seller</span>
+          </div>
+          <div class="menu-body">
+            <h3>Gilded Hall</h3>
+            <p>The crispy crust is like a golden castle protecting chunks of succulent eel, juicy squab, and tender foie gras — all swimming in a rich mushroom sauce. A culinary tour de force.</p>
+            <div class="card-footer">
+              <span class="price">$10</span>
+              <button class="add-cart-btn" onclick="addToCart('Gilded Hall', 10, 'assets/gilded-hall.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="menu-img-wrap">
+            <img src="assets/verdant-gift.png" alt="Verdant Gift"/>
+            <span class="badge badge-rec">Recommended</span>
+          </div>
+          <div class="menu-body">
+            <h3>Verdant Gift</h3>
+            <p>A lush asparagus salad drizzled with yellowy-orange sauce. Fresh and crisp, capturing the vitality of young shoots — as though Escoffier is cooking with time itself.</p>
+            <div class="card-footer">
+              <span class="price">$9</span>
+              <button class="add-cart-btn" onclick="addToCart('Verdant Gift', 9, 'assets/verdant-gift.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="menu-img-wrap">
+            <img src="assets/autumn-frost.png" alt="Autumn Frost"/>
+            <span class="badge badge-rec">Recommended</span>
+          </div>
+          <div class="menu-body">
+            <h3>Autumn Frost</h3>
+            <p>Layers of swirling chestnut cream paint Mont Automnequi, while powdered sugar nestles like frost on mountain slopes. Escoffier has summited the pinnacle of culinary arts.</p>
+            <div class="card-footer">
+              <span class="price">$8</span>
+              <button class="add-cart-btn" onclick="addToCart('Autumn Frost', 8, 'assets/autumn-frost.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="menu-img-wrap">
+            <img src="assets/wave-kissed-sand.png" alt="Wave-Kissed Sands"/>
+            <span class="badge badge-seller">Best Seller</span>
+          </div>
+          <div class="menu-body">
+            <h3>Wave-Kissed Sands</h3>
+            <p>Flowing cream crashes onto the palate like surf on a breaking wave, revealing silky broth beneath. A testament to the chef's masterful arts, imbued with mystical warmth.</p>
+            <div class="card-footer">
+              <span class="price">$9.5</span>
+              <button class="add-cart-btn" onclick="addToCart('Wave-Kissed Sands', 9.5, 'assets/wave-kissed-sand.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="menu-img-wrap">
+            <img src="assets/la-lettre-a-focalors.png" alt="La Lettre à Focalors"/>
+            <span class="badge badge-rec">Recommended</span>
+          </div>
+          <div class="menu-body">
+            <h3>La Lettre à Focalors</h3>
+            <p>A small rectangular cake born from the people's love for their Hydro Archon. The manifold layers stacked upon each other are a true test of the chef's extraordinary skills.</p>
+            <div class="card-footer">
+              <span class="price">$7</span>
+              <button class="add-cart-btn" onclick="addToCart('La Lettre à Focalors', 7, 'assets/la-lettre-a-focalors.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="menu-img-wrap">
+            <img src="assets/pate-de-fruit.png" alt="Pâte de Fruit"/>
+            <span class="badge badge-rec">Recommended</span>
+          </div>
+          <div class="menu-body">
+            <h3>Pâte de Fruit</h3>
+            <p>First created to preserve fruits, this gummy candy has woven itself into every Fontainian's childhood memories. Sweet, chewy, and endlessly irresistible.</p>
+            <div class="card-footer">
+              <span class="price">$5.5</span>
+              <button class="add-cart-btn" onclick="addToCart('Pâte de Fruit', 5.5, 'assets/pate-de-fruit.png')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="#fff9f0"/></svg>
+    </div>
+    <div class="footer-inner">
+      <p class="footer-brand">Crafted by <strong>Escoffier</strong></p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/aiiistheticsv4" target="_blank" aria-label="Instagram" class="social-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://tiktok.com/@aiiistheticsv4" target="_blank" aria-label="TikTok" class="social-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+        </a>
+        <a href="mailto:aiiisthetodv1@gmail.com" aria-label="Email" class="social-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><polyline points="2,4 12,13 22,4"/></svg>
+        </a>
+        <a href="https://wa.me/6289512924881" target="_blank" aria-label="WhatsApp" class="social-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">© 2025 Escoffier Delights. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- CART POPUP -->
+  <div class="popup-overlay" id="cartOverlay">
+    <div class="popup-box cart-popup">
+      <button class="popup-close" onclick="closeCart()">✕</button>
+      <h2 class="popup-title">🛒 Your Cart</h2>
+      <div class="cart-items" id="cartItems">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+      <div class="cart-total-row" id="cartTotalRow" style="display:none">
+        <span>Total</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <div class="popup-actions" id="cartActions" style="display:none">
+        <button class="btn-primary" onclick="openCheckout()">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT POPUP -->
+  <div class="popup-overlay" id="checkoutOverlay">
+    <div class="popup-box checkout-popup">
+      <button class="popup-close" onclick="closeCheckout()">✕</button>
+      <h2 class="popup-title">📋 Checkout</h2>
+      <div class="checkout-preview" id="checkoutPreview"></div>
+      <div class="checkout-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="checkoutEmail" placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="checkoutPhone" placeholder="+62 8xx-xxxx-xxxx"/>
+        </div>
+        <div class="form-group">
+          <label>Delivery Address</label>
+          <textarea id="checkoutAddress" placeholder="Full address..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Payment Method</label>
+          <div class="payment-opts">
+            <button class="pay-opt active" id="payDana" onclick="selectPayment('dana')">
+              <span class="pay-icon">💙</span> DANA
+            </button>
+            <button class="pay-opt" id="payBank" onclick="selectPayment('bank')">
+              <span class="pay-icon">🏦</span> Bank Transfer
+            </button>
+          </div>
+        </div>
+        <div class="checkout-total-row">
+          <span>Total</span>
+          <span id="checkoutTotal">$0</span>
+        </div>
+        <div class="popup-actions checkout-btns">
+          <button class="btn-secondary" onclick="closeCheckout()">Cancel</button>
+          <button class="btn-primary" onclick="processBuy()">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMING SOON POPUP -->
+  <div class="popup-overlay" id="comingSoonOverlay">
+    <div class="popup-box small-popup">
+      <button class="popup-close" onclick="closeComingSoon()">✕</button>
+      <div class="coming-soon-content">
+        <div class="coming-icon">🏦</div>
+        <h3>Coming Soon</h3>
+        <p>Bank Transfer payment is currently under development. Please use DANA for now.</p>
+        <button class="btn-primary" onclick="closeComingSoon()">Got it!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMO POPUP -->
+  <div class="popup-overlay" id="promoOverlay">
+    <div class="popup-box promo-popup">
+      <button class="popup-close" onclick="closePromo()">✕</button>
+      <div class="promo-badge">🔥 Limited Offer</div>
+      <h2 class="promo-title">Special Sweet Pair</h2>
+      <p class="promo-sub">2 desserts, 1 perfect combo</p>
+      <div class="promo-items">
+        <div class="promo-item">
+          <img src="assets/delicious-la-lettre-a-focalors.png" alt="La Lettre"/>
+          <span>Delicious La Lettre à Focalors</span>
+        </div>
+        <div class="promo-plus">+</div>
+        <div class="promo-item">
+          <img src="assets/delicious-pate-de-fruit.png" alt="Pâte de Fruit"/>
+          <span>Delicious Pâte de Fruit</span>
+        </div>
+      </div>
+      <div class="promo-price">
+        <span class="price-old">$14</span>
+        <span class="price-new">$10</span>
+      </div>
+      <div class="popup-actions">
+        <button class="btn-primary" onclick="grabDeal()">Grab This Deal</button>
+        <button class="btn-ghost" onclick="closePromo()">Skip</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment – Escoffier Delights</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body class="pay-page">
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <div class="pay-wrapper">
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Cart
+    </button>
+
+    <div class="pay-card">
+
+      <!-- Header -->
+      <div class="pay-header">
+        <div class="pay-logo">
+          <img src="assets/logo.png" alt="Escoffier Delights"/>
+        </div>
+        <h1 class="pay-title">Complete Your Payment</h1>
+        <p class="pay-sub">Scan the QR below to pay via DANA</p>
+      </div>
+
+      <div class="pay-body">
+
+        <!-- QR Section -->
+        <div class="qr-section">
+          <div class="qr-wrap">
+            <div class="qr-pulse"></div>
+            <img src="assets/qrpay.png" alt="DANA QR Code" class="qr-img"/>
+          </div>
+          <div class="qr-label">
+            <span class="dana-badge">💙 DANA</span>
+            <p>Open your DANA app and scan this QR to complete payment</p>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="pay-summary">
+          <h3 class="summary-title">Order Summary</h3>
+          <div class="summary-items" id="summaryItems">
+            <!-- filled by JS -->
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span id="summaryTotal" class="total-price">$0</span>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="pay-contact">
+          <h3 class="summary-title">Contact Info</h3>
+          <div class="contact-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><polyline points="2,4 12,13 22,4"/></svg>
+            <span id="payEmail">—</span>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div class="pay-status">
+          <div class="status-anim">
+            <div class="status-ring"></div>
+            <div class="status-dot"></div>
+          </div>
+          <p class="status-text">Waiting for payment...</p>
+          <p class="status-hint">This page will update once payment is confirmed</p>
+        </div>
+
+      </div>
+
+      <!-- Footer Note -->
+      <div class="pay-footer-note">
+        <p>⚠️ This is a sample payment page for demonstration purposes only.</p>
+        <p>But if you do send payment — <strong>that's incredibly kind support! Thank you so much! 🙏</strong></p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Load payment data from sessionStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const data = JSON.parse(sessionStorage.getItem('orderData') || '{}');
+      const items = data.items || [];
+      const total = data.total || 0;
+      const email = data.email || '—';
+
+      document.getElementById('payEmail').textContent = email;
+      document.getElementById('summaryTotal').textContent = '$' + total.toFixed(2);
+
+      const container = document.getElementById('summaryItems');
+      if (items.length === 0) {
+        container.innerHTML = '<p class="no-items">No items found.</p>';
+      } else {
+        items.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'summary-row';
+          row.innerHTML = `
+            <div class="summary-item-info">
+              <img src="${item.img}" alt="${item.name}" onerror="this.style.display='none'"/>
+              <span>${item.name} <em>x${item.qty}</em></span>
+            </div>
+            <span>$${(item.price * item.qty).toFixed(2)}</span>
+          `;
+          container.appendChild(row);
+        });
+      }
+    });
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
